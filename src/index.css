@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Chakra Petch", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+
+  --color-ink: #05070a;
+  --color-void: #0a0d12;
+  --color-surface: #10141b;
+  --color-surface-2: #161b24;
+  --color-surface-3: #1d2330;
+  --color-line: #262d3a;
+  --color-line-soft: #1a202b;
+
+  --color-lime: #c6ff3d;
+  --color-lime-dim: #8fd11f;
+  --color-amber: #ff8a1e;
+  --color-violet: #8b6bff;
+  --color-violet-dim: #6a4fd9;
+  --color-red: #ff4d5e;
+  --color-blue: #3ea0ff;
+
+  --color-text: #eef2f6;
+  --color-text-dim: #97a1b3;
+  --color-text-faint: #5d6577;
+}
+
+html, body {
+  background: var(--color-void);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-surface-3) transparent;
+}
+
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--color-surface-3); border-radius: 8px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--color-line); }
+
+.font-display { font-family: var(--font-display); }
+
+.bg-noise {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.035) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.odds-btn {
+  transition: all 0.15s ease;
+}
+.odds-btn:hover {
+  transform: translateY(-1px);
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-pulse-live { animation: pulse-live 1.4s ease-in-out infinite; }
+
+@keyframes flash-up {
+  0% { background-color: rgba(198, 255, 61, 0.35); }
+  100% { background-color: transparent; }
+}
+@keyframes flash-down {
+  0% { background-color: rgba(255, 77, 94, 0.35); }
+  100% { background-color: transparent; }
+}
+.flash-up { animation: flash-up 0.9s ease-out; }
+.flash-down { animation: flash-down 0.9s ease-out; }
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 32s linear infinite;
+}
+
+.clip-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
